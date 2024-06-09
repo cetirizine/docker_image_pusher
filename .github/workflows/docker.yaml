@@ -28,6 +28,7 @@ jobs:
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
         for line in $(cat images.txt); do
+        while IFS= read -r line; do
           echo "docker pull $line"
           docker pull $line
           image_name_tag=$(echo $line | awk -F'/' '{print $NF}')
@@ -36,4 +37,4 @@ jobs:
           docker tag $line $new_image
           echo "docker push $new_image"
           docker push $new_image
-        done
+        done < images.txt

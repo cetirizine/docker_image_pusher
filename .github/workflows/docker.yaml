@@ -27,7 +27,6 @@ jobs:
     - name: Build and push image Aliyun
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
-        for line in $(cat images.txt); do
         while IFS= read -r line; do
           echo "docker pull $line"
           docker pull $line

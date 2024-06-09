@@ -30,14 +30,9 @@ jobs:
         while IFS= read -r line; do
           echo "docker pull $line"
           docker pull $line
-          platform=$(echo "$line" | grep -oE '--platform [^ ]+' | cut -d' ' -f2)
-          # 如果没有找到 --platform 参数，设置 platform 为空字符串
-          if [ -z "$platform" ]; then
-             platform=""
-          fi
           # 获取镜像的完整名称，例如kasmweb/nginx:1.25.3（命名空间/镜像名:版本号）
           image=$(echo "$line" | awk '{print $NF}')
-          # 获取  镜像名:版本号  例如nginx:1.25.3
+          # 获取 镜像名:版本号  例如nginx:1.25.3
           image_name_tag=$(echo "$image" | awk -F'/' '{print $NF}')
           new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$image_name_tag"
           echo "docker tag $image $new_image"

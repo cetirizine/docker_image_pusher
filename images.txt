@@ -1,2 +1,1 @@
-cooderl/wewe-rss-sqlite:latest
-arm64v8/ubuntu:latest
+--platform linux/arm64 alpine

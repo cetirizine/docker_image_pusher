@@ -1,2 +1,1 @@
---platform linux/arm64 cooderl/wewe-rss-sqlite:latest
-clickhouse/clickhouse-server:24.3.13-alpine
+--platform linux/arm64 clickhouse:24.9.2.42

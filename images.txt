@@ -1,1 +1,1 @@
---platform linux/amd64 clickhouse:24.9.2.42
+--platform linux/amd64 clickhouse:24.8.6
